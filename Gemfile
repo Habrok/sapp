@@ -12,6 +12,11 @@ group :development, :test do
 	gem 'rspec-rails', '2.13.1'
 	gem 'guard-rspec', '2.5.0'
 	gem 'sqlite3', '1.3.7'
+
+  #Spork
+  gem 'spork-rails', :git => "https://github.com/railstutorial/spork-rails.git", :branch => 'master'
+  gem 'guard-spork', '1.5.0'
+  gem 'childprocess', '0.3.6'
 end
 
 group :test do
