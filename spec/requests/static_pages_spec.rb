@@ -1,69 +1,41 @@
 require 'spec_helper'
 
 describe "StaticPages" do
+  subject { page }
 
   describe "Home page" do
-    it "should have the content 'SApp'" do
-      visit '/static_pages/home'
-      expect(page).to have_content("Home")
-    end
+    before { visit root_path }
 
-    it "should have the base title" do
-	  visit '/static_pages/home'
-	  expect(page).to have_title("SApp")
-  	end
-
-    it "should not have a custom title" do
-      visit '/static_pages/home'
-      expect(page).not_to have_title(' | Home')
-    end
+    it { should have_content("Home") }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Home')}
   end
 
   describe "Help page" do
-    it "must have the content 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_content('Help')
-    end
+    before { visit help_path }
 
-    it "should have the right title" do
-	  visit '/static_pages/help'
-	  expect(page).to have_title("#{@base_title} | Help")
-  	end
+    it { should have_content('Help') }
+    it { should have_title(full_title('Help')) }
   end
 
   describe "About page" do
-    it "must have the content 'About Us'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('About Us')
-    end
+    before { visit about_path }
 
-    it "should have the right title" do
-	  visit '/static_pages/about'
-	  expect(page).to have_title("#{@base_title} | About")
-  	end
+    it { should have_content('About Us') }
+    it { should have_title(full_title('About')) }
   end
 
   describe "Donate page" do
-    it "must have the content 'dollar sign'" do
-      visit '/static_pages/donate'
-      expect(page).to have_content('$')
-    end
-
-    it "should have the right title" do
-	  visit '/static_pages/donate'
-	  expect(page).to have_title("#{@base_title} | Donate")
-  	end
+    before { visit donate_path }
+    
+    it { should have_content('$') }
+    it { should have_title(full_title('Donate')) }
   end
   
   describe "Contact page" do
-    it "must have the content 'Contact'" do
-      visit '/static_pages/contact'
-      expect(page).to have_content('Contact')
-    end
+    before { visit contact_path }
 
-    it "should have the right title" do
-    visit '/static_pages/contact'
-    expect(page).to have_title("#{@base_title} | Contact")
-    end
+    it { should have_content('Contact') }
+    it { should have_title(full_title('Contact')) }
   end  
 end

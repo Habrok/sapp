@@ -1,4 +1,12 @@
-<h1>Home</h1>
+<div class="center hero-unit">
+	<h1>Welcome to Sapp</h1>
+
+	<h2>Home</h2>
 	<p>
 		<a href="http://harail.herokuapp.com/">Hi there!</a>
 	</p>
+
+	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.jpg", alt: "Rails"), 'http://rubyonrails.org/' %>
